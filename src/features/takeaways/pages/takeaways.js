@@ -4,10 +4,10 @@ import { Takeaway } from "../components/takeaway";
 import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
 import { Searchbar } from "react-native-paper";
 
-export const TakeawayPage = () => {
+export const TakeawaysPage = () => {
   return (
     <SafeAreaView
-      style={tw`flex ${
+      style={tw`flex-auto ${
         StatusBar.currentHeight &&
         `mt-${Math.trunc(StatusBar.currentHeight / 3)}`
       }`}
