@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 import AnimatedLoader from "react-native-animated-loader";
 import tw from "tailwind-react-native-classnames";
 import { Takeaway } from "../components/takeaway";
@@ -7,7 +7,7 @@ import { SafeAreaView, StatusBar, FlatList } from "react-native";
 import { TakeawaysContext } from "../../../services/takeaways/takeawayContext";
 import { SearchBar } from "../components/searchBar";
 
-export const TakeawaysPage = () => {
+export const TakeawaysPage = ({ navigation }) => {
   const { takeaways, loading, error } = useContext(TakeawaysContext);
   return (
     <SafeAreaView
@@ -29,7 +29,13 @@ export const TakeawaysPage = () => {
       <FlatList
         data={takeaways}
         renderItem={({ item }) => {
-          return <Takeaway takeaway={item} />;
+          return (
+            <TouchableOpacity
+              onPress={() => navigation.navigate("TakeawaysInfo")}
+            >
+              <Takeaway takeaway={item} />
+            </TouchableOpacity>
+          );
         }}
         keyExtractor={(item) => item.name}
         contentContainerStyle={tw`p-4`}
