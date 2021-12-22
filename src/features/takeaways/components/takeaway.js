@@ -17,6 +17,7 @@ export const Takeaway = ({ takeaway = {} }) => {
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = takeaway;
 
   const starRating = Array.from(new Array(Math.trunc(rating)));
@@ -32,8 +33,13 @@ export const Takeaway = ({ takeaway = {} }) => {
         <Text style={tw`text-xl font-bold`}>{name}</Text>
         <View style={tw`flex flex-row justify-between py-1`}>
           <View style={tw`flex-row py-0.5`}>
-            {starRating.map(() => (
-              <SvgXml xml={Rating} width={18} height={18} />
+            {starRating.map((_, i) => (
+              <SvgXml
+                key={`star-${placeId}-${i}`}
+                xml={Rating}
+                width={18}
+                height={18}
+              />
             ))}
           </View>
           <View style={tw`flex-row py-0.5`}>

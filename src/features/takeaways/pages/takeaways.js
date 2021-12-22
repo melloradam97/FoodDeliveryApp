@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StyleSheet } from "react-native";
+import AnimatedLoader from "react-native-animated-loader";
 import tw from "tailwind-react-native-classnames";
 import { Takeaway } from "../components/takeaway";
-import { View, SafeAreaView, StatusBar, FlatList } from "react-native";
-import { Searchbar } from "react-native-paper";
+import { SafeAreaView, StatusBar, FlatList } from "react-native";
+import { TakeawaysContext } from "../../../services/takeaways/takeawayContext";
+import { SearchBar } from "../components/searchBar";
 
 export const TakeawaysPage = () => {
+  const { takeaways, loading, error } = useContext(TakeawaysContext);
   return (
     <SafeAreaView
       style={tw`flex-auto ${
@@ -12,28 +16,31 @@ export const TakeawaysPage = () => {
         `mt-${Math.trunc(StatusBar.currentHeight / 3)}`
       }`}
     >
-      <View style={tw`p-4`}>
-        <Searchbar />
-      </View>
+      {loading && (
+        <AnimatedLoader
+          visible={true}
+          overlayColor="rgba(255,255,255,0.75)"
+          source={require("../../../../assets/13679-fast-food-mobile-app-loading.json")}
+          animationStyle={styles.lottie}
+          speed={1}
+        />
+      )}
+      <SearchBar />
       <FlatList
-        data={[
-          { name: 1 },
-          { name: 2 },
-          { name: 3 },
-          { name: 4 },
-          { name: 5 },
-          { name: 6 },
-          { name: 7 },
-          { name: 8 },
-          { name: 9 },
-          { name: 10 },
-          { name: 11 },
-          { name: 12 },
-        ]}
-        renderItem={() => <Takeaway />}
+        data={takeaways}
+        renderItem={({ item }) => {
+          return <Takeaway takeaway={item} />;
+        }}
         keyExtractor={(item) => item.name}
         contentContainerStyle={tw`p-4`}
       />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  lottie: {
+    width: 100,
+    height: 100,
+  },
+});
