@@ -21,6 +21,7 @@
     "eslint": "^7.32.0",
     "expo": "~43.0.2",
     "expo-status-bar": "~1.1.0",
+    "firebase": "^9.6.1",
     "lottie-ios": "^3.2.3",
     "lottie-react-native": "^5.0.1",
     "prettier": "^2.5.1",
@@ -29,13 +30,13 @@
     "react-native": "0.64.3",
     "react-native-animated-loader": "^0.0.9",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-maps": "0.28.1",
     "react-native-paper": "^4.11.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
-    "tailwind-react-native-classnames": "^1.5.1",
-    "react-native-maps": "0.28.1"
+    "tailwind-react-native-classnames": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
