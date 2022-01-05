@@ -31,7 +31,9 @@ export const TakeawaysPage = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("TakeawaysInfo")}
+              onPress={() =>
+                navigation.navigate("TakeawaysInfo", { takeaway: item })
+              }
             >
               <Takeaway takeaway={item} />
             </TouchableOpacity>

@@ -1,11 +1,11 @@
 import React from "react";
 import { TakeawaysPage } from "../takeaways/pages/takeaways";
+import { TakeawayInfoPage } from "../takeaways/pages/takeawayInfo";
 
 import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-import { Text } from "react-native";
 
 export const TakeawayStack = createStackNavigator();
 
@@ -22,7 +22,7 @@ export const TakeawaysNavigator = () => {
       <TakeawayStack.Screen
         options={{ headerShown: false }}
         name="TakeawaysInfo"
-        component={() => <Text>Info init</Text>}
+        component={TakeawayInfoPage}
       />
     </TakeawayStack.Navigator>
   );
