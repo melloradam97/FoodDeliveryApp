@@ -13,7 +13,7 @@ export const SearchBar = () => {
   }, [keyword]);
 
   return (
-    <View style={tw`p-4`}>
+    <View style={tw`p-4 z-50 absolute top-8 w-full`}>
       <Searchbar
         placeholder="Enter a City..."
         value={searchedKeyword}

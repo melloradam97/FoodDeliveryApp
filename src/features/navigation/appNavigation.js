@@ -4,15 +4,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 import { TakeawaysNavigator } from "./takeawayNavigation";
+import { MapPage } from "../map/pages/map";
 
 const Tab = createBottomTabNavigator();
 
 const Settings = () => {
   return <Text>Settings Page</Text>;
-};
-
-const Map = () => {
-  return <Text>Map Page</Text>;
 };
 
 export const AppNavigation = () => {
@@ -43,7 +40,7 @@ export const AppNavigation = () => {
         />
         <Tab.Screen
           name="Map"
-          component={Map}
+          component={MapPage}
           options={{ headerShown: false }}
         />
         <Tab.Screen
