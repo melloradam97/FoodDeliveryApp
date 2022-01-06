@@ -11,14 +11,14 @@ export const AuthContextProvider = ({ children }) => {
   const login = (email, password) => {
     setLoading(true);
 
-    loginReq
-      .then((user) => {
+    loginReq(email, password)
+      .then((u) => {
         setLoading(false);
-        setUser(user);
+        setUser(u);
       })
       .catch((e) => {
         setLoading(false);
-        setErr(e);
+        setErr(e.toString());
         console.error(e);
       });
   };
@@ -30,6 +30,7 @@ export const AuthContextProvider = ({ children }) => {
         loading,
         err,
         login,
+        isAuth: !!user,
       }}
     >
       {children}
