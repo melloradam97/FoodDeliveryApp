@@ -30,7 +30,6 @@ export const LoginPage = ({ navigation }) => {
             label="Password"
             value={password}
             textContentType="password"
-            secure
             autoCapitalize="none"
             secureTextEntry
             onChangeText={(pass) => setPassword(pass)}
