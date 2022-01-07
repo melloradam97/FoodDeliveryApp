@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
+import { Animation } from "../../animations/animation";
 import AnimatedLoader from "react-native-animated-loader";
 import tw from "tailwind-react-native-classnames";
 import { Takeaway } from "../components/takeaway";
@@ -8,7 +9,7 @@ import { TakeawaysContext } from "../../../services/takeaways/takeawayContext";
 import { SearchBar } from "../components/searchBar";
 
 export const TakeawaysPage = ({ navigation }) => {
-  const { takeaways, loading, error } = useContext(TakeawaysContext);
+  const { takeaways, loading } = useContext(TakeawaysContext);
   return (
     <SafeAreaView
       style={tw`flex-auto ${
