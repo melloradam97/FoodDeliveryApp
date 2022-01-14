@@ -1,10 +1,4 @@
-import React, {
-  useMemo,
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-} from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 
 import { takeawaysRequest, takeawaysTrans } from "./takeawaysService";
 import { LocationContext } from "../location/locationContext";
@@ -21,18 +15,16 @@ export const TakeawaysContextProvider = ({ children }) => {
   const fetchTakeaways = (loc) => {
     setLoading(true);
     setTakeaways([]);
-    setTimeout(() => {
-      takeawaysRequest(loc)
-        .then(takeawaysTrans)
-        .then((res) => {
-          setTakeaways(res);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setLoading(false);
-          setError(err);
-        });
-    }, 3000);
+    takeawaysRequest(loc)
+      .then(takeawaysTrans)
+      .then((res) => {
+        setTakeaways(res);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err);
+      });
   };
 
   useEffect(() => {

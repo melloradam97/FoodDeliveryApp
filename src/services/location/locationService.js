@@ -1,18 +1,15 @@
 import camelize from "camelize";
 
-import { locations } from "./locationMock";
-
 export const locRequest = (searchedTerm) => {
-  return new Promise((resolve, reject) => {
-    const locMock = locations[searchedTerm];
-    if (!locMock) {
-      reject("not found");
-    }
-    resolve(locMock);
+  return fetch(
+    `https://us-central1-fooddeliveryapp-fe60d.cloudfunctions.net/geocodingAPI?city=${searchedTerm}`
+  ).then((res) => {
+    return res.json();
   });
 };
 
 export const locTrans = (res) => {
+  console.log(res);
   const { geometry = {} } = camelize(res.results)[0];
   const { lat, lng } = geometry.location;
 

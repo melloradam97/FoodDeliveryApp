@@ -1,22 +1,15 @@
-import react from "react";
 import camelize from "camelize";
-import { mocks, mockImages } from "./mock";
 
-export const takeawaysRequest = (loc = "37.7749295,-122.4194155") => {
-  return new Promise((resolve, reject) => {
-    const mock = mocks[loc];
-    if (!mock) {
-      reject("not found");
-    }
-    resolve(mock);
+export const takeawaysRequest = (loc) => {
+  return fetch(
+    `https://us-central1-fooddeliveryapp-fe60d.cloudfunctions.net/placesAPI?location=${loc}`
+  ).then((res) => {
+    return res.json();
   });
 };
 
 export const takeawaysTrans = ({ results = [] }) => {
   const mappedRes = results.map((takeaway) => {
-    takeaway.photos = takeaway.photos.map((p) => {
-      return mockImages[Math.trunc(Math.random() * (mockImages.length - 1))];
-    });
     return {
       ...takeaway,
       isOpenNow: takeaway.opening_hours && takeaway.opening_hours.open_now,

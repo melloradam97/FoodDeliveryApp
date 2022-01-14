@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
-import { Animation } from "../../animations/animation";
 import AnimatedLoader from "react-native-animated-loader";
 import tw from "tailwind-react-native-classnames";
 import { Takeaway } from "../components/takeaway";

@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .js"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.6",
     "@react-native-community/eslint-config": "^3.0.1",
     "@react-native-masked-view/masked-view": "^0.2.5",
     "@react-navigation/bottom-tabs": "^6.0.9",
@@ -22,8 +23,11 @@
     "expo": "~43.0.2",
     "expo-status-bar": "~1.1.0",
     "firebase": "^9.6.1",
+    "firebase-admin": "^10.0.1",
+    "firebase-functions": "^3.16.0",
     "lottie-ios": "^3.2.3",
     "lottie-react-native": "^5.0.1",
+    "ngrok": "^4.2.2",
     "prettier": "^2.5.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -36,7 +40,8 @@
     "react-native-screens": "~3.8.0",
     "react-native-svg": "^12.1.1",
     "react-native-web": "0.17.1",
-    "tailwind-react-native-classnames": "^1.5.1"
+    "tailwind-react-native-classnames": "^1.5.1",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

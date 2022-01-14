@@ -15,7 +15,7 @@ export const TakeawaysNavigator = () => {
       screenOptions={{ ...TransitionPresets.ModalPresentationIOS }}
     >
       <TakeawayStack.Screen
-        name="Takeaways"
+        name="Takeaway"
         component={TakeawaysPage}
         options={{ headerShown: false }}
       />
