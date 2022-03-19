@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import { TextInput, Button } from "react-native-paper";
+// import { TextInput, Button } from "react-native-paper";
+import { Input, Button } from "react-native-elements";
 import { AuthContext } from "../../../services/auth/authContext";
 import { ImageBackground, View, Text } from "react-native";
 import tw from "tailwind-react-native-classnames";
@@ -11,13 +12,13 @@ export const LoginPage = ({ navigation }) => {
   return (
     <View style={tw`flex-1`}>
       <ImageBackground
-        source={require("../../../../assets/kristina-bratko-nP11TkjxJ7s-unsplash.jpg")}
+        source={require("../../../../assets/photo-1615800098779-1be32e60cca3.jpeg")}
         resizeMode="cover"
         style={tw`flex-1 justify-center`}
       >
         <View style={tw`rounded-xl p-8 mx-auto`}>
-          <TextInput
-            style={tw`w-72`}
+          <Input
+            containerStyle={tw`w-72`}
             label="E-mail"
             value={email}
             textContentType="emailAddress"
@@ -25,8 +26,8 @@ export const LoginPage = ({ navigation }) => {
             autoCapitalize="none"
             onChangeText={(username) => setEmail(username)}
           />
-          <TextInput
-            style={tw`w-72 mt-4`}
+          <Input
+            containerStyle={tw`w-72`}
             label="Password"
             value={password}
             textContentType="password"
@@ -36,22 +37,20 @@ export const LoginPage = ({ navigation }) => {
           />
           {err && <Text style={tw`mt-4 text-red-700`}>{err}</Text>}
           <Button
-            style={tw`mt-4`}
+            style={tw`mt-4 w-48 mx-auto`}
             color="#facc15"
             mode="contained"
+            title="Login"
             onPress={() => login(email, password)}
-          >
-            Login
-          </Button>
+          />
         </View>
         <Button
-          style={tw`mt-4 mx-auto`}
+          style={tw`mt-4 w-24 mx-auto`}
           color="#facc15"
           mode="contained"
+          title="Back"
           onPress={() => navigation.goBack()}
-        >
-          Back
-        </Button>
+        />
       </ImageBackground>
     </View>
   );
