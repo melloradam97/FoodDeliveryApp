@@ -29,7 +29,7 @@ export const AppNavigation = () => {
               }
               return <Ionicons name={iconName} size={size} color={color} />;
             },
-            tabBarActiveTintColor: "tomato",
+            tabBarActiveTintColor: "#9333EA",
             tabBarInactiveTintColor: "gray",
           })}
         >

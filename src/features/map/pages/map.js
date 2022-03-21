@@ -52,7 +52,7 @@ export const MapPage = ({ navigation }) => {
                 }
               >
                 <View>
-                  <Text>{takeaway.name}</Text>
+                  <Text style={tw`text-purple-600`}>{takeaway.name}</Text>
                 </View>
               </MapView.Callout>
             </MapView.Marker>

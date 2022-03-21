@@ -11,15 +11,17 @@ export const UserPage = ({ navigation }) => {
       style={tw`flex-1 justify-center`}
     >
       <View style={tw`rounded-xl p-8 mx-auto`}>
-        <Text style={tw`text-3xl text-blue-500`}>Name Pending</Text>
+        <Text style={tw`text-3xl text-purple-600`}>Name Pending</Text>
         <Button
+          buttonStyle={tw`bg-purple-600`}
           mode="contained"
-          color="#facc15"
-          style={tw`px-10 py-2 mt-4`}
+          color="secondary"
+          containerStyle={tw`px-10 py-2 mt-4`}
           title="Login"
           onPress={() => navigation.navigate("Login")}
         />
         <Button
+          buttonStyle={tw`bg-purple-600`}
           mode="contained"
           color="#facc15"
           style={tw`mt-4 px-10 py-2`}

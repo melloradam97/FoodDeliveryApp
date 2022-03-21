@@ -7,7 +7,7 @@ import Rating from "../../../../assets/rating";
 import OpenIcon from "../../../../assets/icon";
 
 export const Takeaway = ({ takeaway = {} }) => {
-  // Default information incase the api is not working - breaks the application to not have this
+  // Default information in case the api is not working - breaks the application to not have this
   const {
     name = "an egg takeaway",
     photos = [
@@ -30,7 +30,7 @@ export const Takeaway = ({ takeaway = {} }) => {
         source={{ uri: photos[0] }}
       />
       <View style={tw`p-4`}>
-        <Text style={tw`text-xl font-bold`}>{name}</Text>
+        <Text style={tw`text-xl font-bold text-purple-600`}>{name}</Text>
         <View style={tw`flex flex-row justify-between py-1`}>
           <View style={tw`flex-row py-0.5`}>
             {starRating.map((_, i) => (

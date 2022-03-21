@@ -15,6 +15,8 @@ export const SearchBar = () => {
   return (
     <View style={tw`p-4 z-50 absolute top-8 w-full`}>
       <Searchbar
+        style={tw`text-purple-600`}
+        iconColor="#9333EA"
         placeholder="Enter a City..."
         value={searchedKeyword}
         onSubmitEditing={() => {

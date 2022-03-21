@@ -18,6 +18,7 @@ export const RegisterPage = ({ navigation }) => {
       >
         <View style={tw`rounded-xl p-8 mx-auto`}>
           <Input
+            labelStyle={tw`text-purple-600`}
             containerStyle={tw`w-72`}
             label="E-mail"
             value={email}
@@ -27,6 +28,7 @@ export const RegisterPage = ({ navigation }) => {
             onChangeText={(username) => setEmail(username)}
           />
           <Input
+            labelStyle={tw`text-purple-600`}
             containerStyle={tw`w-72 mt-4`}
             label="Password"
             value={password}
@@ -36,6 +38,7 @@ export const RegisterPage = ({ navigation }) => {
             onChangeText={(pass) => setPassword(pass)}
           />
           <Input
+            labelStyle={tw`text-purple-600`}
             containerStyle={tw`w-72 mt-4`}
             label="Check Password"
             value={rPassword}
@@ -46,6 +49,7 @@ export const RegisterPage = ({ navigation }) => {
           />
           {err && <Text style={tw`mt-4 text-red-700`}>{err}</Text>}
           <Button
+            buttonStyle={tw`bg-purple-600`}
             style={tw`mt-4 w-48 mx-auto`}
             color="#facc15"
             title="Register"
@@ -56,6 +60,7 @@ export const RegisterPage = ({ navigation }) => {
           </Button>
         </View>
         <Button
+          buttonStyle={tw`bg-purple-600`}
           style={tw`mt-4 w-24 mx-auto`}
           color="#facc15"
           mode="contained"

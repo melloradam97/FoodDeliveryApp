@@ -18,6 +18,7 @@ export const LoginPage = ({ navigation }) => {
       >
         <View style={tw`rounded-xl p-8 mx-auto`}>
           <Input
+            labelStyle={tw`text-purple-600`}
             containerStyle={tw`w-72`}
             label="E-mail"
             value={email}
@@ -27,6 +28,7 @@ export const LoginPage = ({ navigation }) => {
             onChangeText={(username) => setEmail(username)}
           />
           <Input
+            labelStyle={tw`text-purple-600`}
             containerStyle={tw`w-72`}
             label="Password"
             value={password}
@@ -37,6 +39,7 @@ export const LoginPage = ({ navigation }) => {
           />
           {err && <Text style={tw`mt-4 text-red-700`}>{err}</Text>}
           <Button
+            buttonStyle={tw`bg-purple-600`}
             style={tw`mt-4 w-48 mx-auto`}
             color="#facc15"
             mode="contained"
@@ -45,6 +48,7 @@ export const LoginPage = ({ navigation }) => {
           />
         </View>
         <Button
+          buttonStyle={tw`bg-purple-600`}
           style={tw`mt-4 w-24 mx-auto`}
           color="#facc15"
           mode="contained"

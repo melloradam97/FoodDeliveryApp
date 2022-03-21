@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import tw from "tailwind-react-native-classnames";
-import { Platform, View } from "react-native";
-import { SearchBar } from "react-native-elements";
+import { View } from "react-native";
+import { Searchbar } from "react-native-paper";
 import { LocationContext } from "../../../services/location/locationContext";
 
-export const SBar = () => {
+export const SearchBar = () => {
   const { keyword, search } = useContext(LocationContext);
   const [searchedKeyword, setSearchedKeyword] = useState(keyword);
 
@@ -13,9 +13,10 @@ export const SBar = () => {
   }, [keyword]);
 
   return (
-    <View style={tw`p-2`}>
-      <SearchBar
-        platform="ios"
+    <View style={tw`p-4 z-50 absolute top-8 w-full`}>
+      <Searchbar
+        style={tw`text-purple-600`}
+        iconColor="#9333EA"
         placeholder="Enter a City..."
         value={searchedKeyword}
         onSubmitEditing={() => {

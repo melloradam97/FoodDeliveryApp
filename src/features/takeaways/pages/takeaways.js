@@ -5,7 +5,7 @@ import tw from "tailwind-react-native-classnames";
 import { Takeaway } from "../components/takeaway";
 import { SafeAreaView, StatusBar, FlatList } from "react-native";
 import { TakeawaysContext } from "../../../services/takeaways/takeawayContext";
-import { SBar } from "../components/searchBar";
+import { SearchBar } from "../components/searchBar";
 
 export const TakeawaysPage = ({ navigation }) => {
   const { takeaways, loading } = useContext(TakeawaysContext);
@@ -25,8 +25,9 @@ export const TakeawaysPage = ({ navigation }) => {
           speed={1}
         />
       )}
-      <SBar />
+      <SearchBar />
       <FlatList
+        style={tw`mt-14`}
         data={takeaways}
         renderItem={({ item }) => {
           return (

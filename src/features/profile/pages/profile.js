@@ -14,13 +14,9 @@ export const ProfilePage = () => {
           `mt-${Math.trunc(StatusBar.currentHeight / 3)}`
         }`}
       >
-        <Text style={tw`mx-auto mt-10 text-xl`}>{user.email}</Text>
-        <Avatar.Icon
-          style={tw`mx-auto mt-10`}
-          size={180}
-          icon="person-outline"
-          backgroundColor="#facc15"
-        />
+        <Text style={tw`mx-auto mt-10 text-xl text-purple-600`}>
+          {user.email}
+        </Text>
         <List.Section>
           <List.Item
             style={tw`p-2`}
