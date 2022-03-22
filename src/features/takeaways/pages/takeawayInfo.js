@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import tw from "tailwind-react-native-classnames";
 import { List } from "react-native-paper";
+import { Button } from "react-native-elements";
 import { SafeAreaView, StatusBar, ScrollView } from "react-native";
 
 import { Takeaway } from "../components/takeaway";
+import { OrderContext } from "../../../services/order/orderContext";
 
-export const TakeawayInfoPage = ({ route }) => {
+export const TakeawayInfoPage = ({ route, navigation }) => {
   const [bitesOpen, setBitesOpen] = useState(false);
   const [mainsOpen, setMainsOpen] = useState(false);
   const [drinksOpen, setDrinksOpen] = useState(false);
   const { takeaway } = route.params;
+
+  const { addToOrder } = useContext(OrderContext);
+
   return (
     <SafeAreaView
       style={tw`flex-auto ${
@@ -39,7 +44,7 @@ export const TakeawayInfoPage = ({ route }) => {
         >
           <List.Item title="Cheeseburger (with GF Bun)" />
           <List.Item title="Pepperoni Pizza (with GF Dough)" />
-          <List.Item title="Macaroni Cheese (with GF Pasta)" />
+          <List.Item title="Macaroni Cheese (with GF Pasta and GF Flour)" />
         </List.Accordion>
         <List.Accordion
           title="Drinks"
@@ -52,6 +57,16 @@ export const TakeawayInfoPage = ({ route }) => {
           <List.Item title="Sprite" />
         </List.Accordion>
       </ScrollView>
+      <Button
+        buttonStyle={tw`bg-purple-600`}
+        style={tw`mt-4 w-48 mx-auto mb-5`}
+        color="#facc15"
+        title="Order GF Burger - £8"
+        onPress={() => {
+          addToOrder({ item: "burger", price: 8000 }, takeaway);
+          navigation.navigate("Orders");
+        }}
+      />
     </SafeAreaView>
   );
 };
