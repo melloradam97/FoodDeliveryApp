@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-// import { TextInput, Button } from "react-native-paper";
 import { Input, Button } from "react-native-elements";
 import { AuthContext } from "../../../services/auth/authContext";
 import { ImageBackground, View, Text } from "react-native";

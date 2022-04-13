@@ -61,9 +61,9 @@ export const TakeawayInfoPage = ({ route, navigation }) => {
         buttonStyle={tw`bg-purple-600`}
         style={tw`mt-4 w-48 mx-auto mb-5`}
         color="#facc15"
-        title="Order GF Burger - £8"
+        title="Order GF Burger £8"
         onPress={() => {
-          addToOrder({ item: "burger", price: 8000 }, takeaway);
+          addToOrder({ item: "Burger", price: 8000 }, takeaway);
           navigation.navigate("Orders");
         }}
       />

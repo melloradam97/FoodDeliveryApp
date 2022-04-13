@@ -1,4 +1,3 @@
-const { mocks, addMockImages } = require("./mock");
 const url = require("url");
 const functions = require("firebase-functions");
 
@@ -19,7 +18,7 @@ const addGoogleImg = (takeaway) => {
 };
 
 module.exports.placesReq = (request, response, client) => {
-  const { location, mock } = url.parse(request.url, true).query;
+  const { location } = url.parse(request.url, true).query;
   client
     .placesNearby({
       params: {

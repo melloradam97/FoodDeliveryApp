@@ -1,13 +1,13 @@
 import React from "react";
 import { Token } from "../../../services/order/orderService";
-import { CreditCardInput } from "react-native-input-credit-card";
+import { CreditCardInput } from "react-native-credit-card-input";
 
-export const CardInput = ({ name = "Adam" }) => {
+export const CardInput = ({ name, onSuccess }) => {
   const onChange = async (data) => {
     const { values, status } = data;
     const checkCompletion = Object.values(status).includes("incomplete");
-    console.log(checkCompletion);
     const expiryDate = values.expiry.split("/");
+
     const cardDetails = {
       number: values.number,
       exp_month: expiryDate[0],
@@ -16,7 +16,10 @@ export const CardInput = ({ name = "Adam" }) => {
       name: name,
     };
 
-    const details = await Token(cardDetails);
+    if (!checkCompletion) {
+      const details = await Token(cardDetails);
+      onSuccess(details);
+    }
   };
   return <CreditCardInput onChange={onChange} />;
 };

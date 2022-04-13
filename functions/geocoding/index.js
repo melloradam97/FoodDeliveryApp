@@ -1,9 +1,8 @@
-const { locations: locationsMock } = require("./locations");
 const url = require("url");
 const functions = require("firebase-functions");
 
 module.exports.geocodingReq = (request, response, client) => {
-  const { city, mock } = url.parse(request.url, true).query;
+  const { city } = url.parse(request.url, true).query;
 
   client
     .geocode({

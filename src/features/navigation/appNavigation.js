@@ -2,10 +2,10 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import { TakeawaysNavigator } from "./takeawayNavigation";
+import { TakeawaysNavigation } from "./takeawayNavigation";
 import { ProfilePage } from "../profile/pages/profile";
 import { MapPage } from "../map/pages/map";
-import { OrderPage } from "../order/pages/order";
+import { OrderNavigation } from "./orderNavigation";
 
 import { LocationContextProvider } from "../../services/location/locationContext";
 import { TakeawaysContextProvider } from "../../services/takeaways/takeawayContext";
@@ -40,7 +40,7 @@ export const AppNavigation = () => {
           >
             <Tab.Screen
               name="Takeaways"
-              component={TakeawaysNavigator}
+              component={TakeawaysNavigation}
               options={{ headerShown: false }}
             />
             <Tab.Screen
@@ -50,7 +50,7 @@ export const AppNavigation = () => {
             />
             <Tab.Screen
               name="Orders"
-              component={OrderPage}
+              component={OrderNavigation}
               options={{ headerShown: false }}
             />
             <Tab.Screen

@@ -9,7 +9,7 @@ import {
 
 export const TakeawayStack = createStackNavigator();
 
-export const TakeawaysNavigator = () => {
+export const TakeawaysNavigation = () => {
   return (
     <TakeawayStack.Navigator
       screenOptions={{ ...TransitionPresets.ModalPresentationIOS }}

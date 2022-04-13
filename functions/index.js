@@ -8,6 +8,7 @@ const client = new Client({});
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
+
 exports.geocodingAPI = functions.https.onRequest((request, response) => {
   geocodingReq(request, response, client);
 });
