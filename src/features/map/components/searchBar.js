@@ -5,12 +5,12 @@ import { Searchbar } from "react-native-paper";
 import { LocationContext } from "../../../services/location/locationContext";
 
 export const SearchBar = () => {
-  const { keyword, search } = useContext(LocationContext);
-  const [searchedKeyword, setSearchedKeyword] = useState(keyword);
+  const { place, search } = useContext(LocationContext);
+  const [searchedPlace, setSearchedPlace] = useState(place);
 
   useEffect(() => {
-    setSearchedKeyword(keyword);
-  }, [keyword]);
+    setSearchedPlace(place);
+  }, [place]);
 
   return (
     <View style={tw`p-4 z-50 absolute top-8 w-full`}>
@@ -18,12 +18,12 @@ export const SearchBar = () => {
         style={tw`text-purple-600`}
         iconColor="#9333EA"
         placeholder="Enter a City..."
-        value={searchedKeyword}
+        value={searchedPlace}
         onSubmitEditing={() => {
-          search(searchedKeyword);
+          search(searchedPlace);
         }}
         onChangeText={(text) => {
-          setSearchedKeyword(text);
+          setSearchedPlace(text);
         }}
       />
     </View>

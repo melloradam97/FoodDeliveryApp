@@ -17,8 +17,8 @@ export const MapPage = ({ navigation }) => {
   console.log(viewport.northeast);
 
   useEffect(() => {
-    const neLat = viewport.northeast.lat;
     const seLat = viewport.southwest.lat;
+    const neLat = viewport.northeast.lat;
 
     const latD = neLat - seLat;
     setLatD(latD);
@@ -30,20 +30,20 @@ export const MapPage = ({ navigation }) => {
       <MapView
         style={tw`h-full w-full`}
         region={{
+          longitudeDelta: 0.03,
+          latitudeDelta: latD,
           latitude: lat,
           longitude: lng,
-          latitudeDelta: latD,
-          longitudeDelta: 0.04,
         }}
       >
         {takeaways.map((takeaway) => {
           return (
             <MapView.Marker
-              key={takeaway.name}
               title={takeaway.name}
+              key={takeaway.name}
               coordinate={{
-                latitude: takeaway.geometry.location.lat,
                 longitude: takeaway.geometry.location.lng,
+                latitude: takeaway.geometry.location.lat,
               }}
             >
               <MapView.Callout

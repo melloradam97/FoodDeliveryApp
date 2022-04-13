@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -24,8 +23,6 @@ export const loginReq = async (email, password) =>
 
 export const registerReq = async (email, password) =>
   createUserWithEmailAndPassword(auth, email, password);
-
-// export const authReq = async (user) => onAuthStateChanged(auth, user);
 
 export const AuthContext = createContext();
 

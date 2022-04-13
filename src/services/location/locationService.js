@@ -1,10 +1,10 @@
 import camelize from "camelize";
 
-export const locRequest = (searchedTerm) => {
+export const locRequest = (searchedLocation) => {
   return fetch(
-    `https://us-central1-fooddeliveryapp-fe60d.cloudfunctions.net/geocodingAPI?city=${searchedTerm}`
-  ).then((res) => {
-    return res.json();
+    `https://us-central1-fooddeliveryapp-fe60d.cloudfunctions.net/geocodingAPI?city=${searchedLocation}`
+  ).then((response) => {
+    return response.json();
   });
 };
 

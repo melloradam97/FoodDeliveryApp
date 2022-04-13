@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect, createContext } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useState, useContext, createContext } from "react";
 import { AuthContext } from "../auth/authContext";
 
 export const OrderContext = createContext();

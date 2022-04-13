@@ -3,12 +3,6 @@ const functions = require("firebase-functions");
 
 const addGoogleImg = (takeaway) => {
   const reference = takeaway.photos[0].photo_reference;
-  if (!reference) {
-    takeaway.photos = [
-      "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
-    ];
-    return takeaway;
-  }
   takeaway.photos = [
     `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${reference}&key=${
       functions.config().google.key
@@ -17,24 +11,24 @@ const addGoogleImg = (takeaway) => {
   return takeaway;
 };
 
-module.exports.placesReq = (request, response, client) => {
-  const { location } = url.parse(request.url, true).query;
+module.exports.placesReq = (req, res, client) => {
+  const { location } = url.parse(req.url, true).query;
   client
     .placesNearby({
       params: {
-        location: location,
-        radius: 1500,
         type: "restaurant",
+        radius: 1750,
+        location: location,
         key: functions.config().google.key,
       },
-      timeout: 1000,
+      timeout: 1500,
     })
-    .then((res) => {
-      res.data.results = res.data.results.map(addGoogleImg);
-      return response.json(res.data);
+    .then((response) => {
+      response.data.results = response.data.results.map(addGoogleImg);
+      return res.json(response.data);
     })
     .catch((e) => {
-      response.status(400);
-      return response.send(e.response.data.error_message);
+      res.status(400);
+      return res.send(e.res.data.error_message);
     });
 };
